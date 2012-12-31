@@ -49,7 +49,7 @@ describe "Race model", ->
 
     # finish times don't exist yet
     expect(r.getFinishTime @ath1.id).toBeFalsy()
-    expect(r.getFinishTime @ath2.id).toBe s2b
+    expect(r.getFinishTime @ath2.id).toBeFalsy()
 
     r.split @ath1.id, s1b
     r.split @ath2.id, s2b
