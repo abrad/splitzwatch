@@ -19,5 +19,6 @@ class App extends Spine.Controller
     @stack.menu.active()
     Spine.Route.setup()
 
+App.models = {}
 App.controllers = {}
 window.App = App
