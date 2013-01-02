@@ -14,9 +14,9 @@
 class App extends Spine.Controller
   constructor: ->
     super
-    @stack = new App.controllers.Stack
+    @stack = new App.controllers.Races
     @append @stack
-    @stack.menu.active()
+    @stack.index.active()
     Spine.Route.setup()
 
 App.models = {}

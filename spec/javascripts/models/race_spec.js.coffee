@@ -62,3 +62,24 @@ describe "Race model", ->
     expect(a1Splits[0]).toBe s1a
     expect(a1Splits[1]).toBe s1b
 
+  it "should be able to retrieve all by date", ->
+    r1 = Race.create
+      name: "some old school race"
+      date: 10000
+      athlete_ids: [@ath1.id, @ath2.id]
+      num_laps: 2
+    r2 = Race.create
+      name: "some newer race"
+      date: 20000
+      athlete_ids: [@ath1.id, @ath2.id]
+      num_laps: 4
+    r3 = Race.create
+      name: "some ancient race"
+      date: 200
+      athlete_ids: [@ath1.id, @ath2.id]
+      num_laps: 8
+
+    racesByDate = Race.allByDate()
+    expect(racesByDate[0]).toBe r3
+    expect(racesByDate[1]).toBe r1
+    expect(racesByDate[2]).toBe r2

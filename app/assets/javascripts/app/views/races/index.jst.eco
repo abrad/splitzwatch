@@ -1,0 +1,8 @@
+<h1>Welcome to SplitzWatch</h1>
+<div id="athlete-menu">
+  Filter by: <select id="athlete-filter"></select>
+  <button id="new-athlete-btn">New Athlete</button>
+</div>
+<div id="races-list">
+</div>
+<button id="new-race-btn">New Race</button>

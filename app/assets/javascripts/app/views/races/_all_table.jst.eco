@@ -1,0 +1,12 @@
+<table class="races-table">
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+  </tr>
+  <% for race in @races: %>
+    <tr>
+      <td><%- race.date %></td>
+      <td><%- race.name %></td>
+    </tr>
+  <% end %>
+</table>
