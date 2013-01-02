@@ -7,13 +7,13 @@ describe "Race model", ->
     Race.deleteAll()
     Athlete.deleteAll()
     @ath1 = Athlete.create(
-      first_name: Chris
-      last_name: Wong
+      first_name: "Chris"
+      last_name: "Wong"
       age: 15
     )
     @ath2 = Athlete.create(
-      first_name: David
-      last_name: Rudisha
+      first_name: "David"
+      last_name: "Rudisha"
       age: 28
     )
     @validAttributes =
@@ -33,8 +33,8 @@ describe "Race model", ->
     r = Race.create @validAttributes
     athletes = r.getAthletes()
     expect(athletes.length).toBe 2
-    expect(athletes.indexOf(@ath1) > 0).toBeTruthy()
-    expect(athletes.indexOf(@ath2) > 0).toBeTruthy()
+    expect(athletes[0].id in [@ath1.id, @ath2.id]).toBeTruthy()
+    expect(athletes[1].id in [@ath1.id, @ath2.id]).toBeTruthy()
 
   it "should store the lap splits for each athlete and offer finishing time", ->
     # splits
@@ -80,6 +80,6 @@ describe "Race model", ->
       num_laps: 8
 
     racesByDate = Race.allByDate()
-    expect(racesByDate[0]).toBe r3
-    expect(racesByDate[1]).toBe r1
-    expect(racesByDate[2]).toBe r2
+    expect(racesByDate[0].id).toBe r3.id
+    expect(racesByDate[1].id).toBe r1.id
+    expect(racesByDate[2].id).toBe r2.id

@@ -5,7 +5,7 @@ class App.models.Race extends Spine.Model
 
   @allByDate: ->
     @all().sort( (a, b) ->
-      a.date < b.date
+      a.date - b.date
     )
 
   constructor: (params) ->
@@ -18,6 +18,7 @@ class App.models.Race extends Spine.Model
     athletes = []
     for athId in @athlete_ids
       athletes.push Athlete.find athId
+    athletes
 
   split: (athId, time) ->
     @athleteSplits[athId].push time
@@ -27,4 +28,4 @@ class App.models.Race extends Spine.Model
 
   getFinishTime: (athId) ->
     splits = @getSplits athId
-    splits[num_laps - 1]
+    splits[@num_laps - 1]
